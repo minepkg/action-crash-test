@@ -4,7 +4,8 @@ This action crash tests a minepkg package.
 
 ## Usage
 
-Here's an example to crash test a package using the latest possible version listed in your `minepkg.toml` file (`requirements.minecraft`).
+To get this minimal example running, you'll need to have a `minepkg.toml` file [in your repository](https://minepkg.io/docs/install).
+You can then create the following file as `.github/workflows/crash-test.yml` to get the action running:
 
 ```yaml
 name: 'crash test on push'
@@ -22,6 +23,8 @@ jobs:
           working-directory: '/' # optional
           # minecraft: 1.18.2 # optional
 ```
+
+This action will crash test your package using the latest possible version listed you specified for `requirements.minecraft` in your `minepkg.toml` file.
 
 ## `with` input parameters explained
 
