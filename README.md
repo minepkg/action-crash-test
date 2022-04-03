@@ -26,9 +26,9 @@ jobs:
 ## `with` input parameters explained
 
 - **`working-directory`**: The directory where the minepkg.toml is located. (Default: root directory)
-- **`minecraft`**: Which Minecraft version to use when testing the package. Defaults to whatever is set for **requirements.minecraft** in the **minepkg.toml**
+- **`minecraft`**: Minecraft version to use when testing the package. Defaults to whatever is set for **requirements.minecraft** in the **minepkg.toml**
 - **`no-build:`**: Use **true** if you've already built the project to speed up the time it takes for the action to finish. (Default: false)
-- **`cli-version`**: Which version of the minepkg client to use. Defaults to the latest.
+- **`cli-version`**: Version of the minepkg client to use. Defaults to the latest.
 
 ## Matrix Job Setup
 
