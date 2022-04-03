@@ -33,20 +33,13 @@ jobs:
         with:
           working-directory: test/package
       - run: minepkg -v
-  test-no-set-directory:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./
-        working-directory: test/package
-      - run: minepkg -v
   test-other:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-        working-directory: test/package
         with:
+          working-directory: test/package
           cli-version: 0.1.6
           no-build: true
       - run: minepkg -v
