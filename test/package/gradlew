@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+echo "hello, this is definitely gradle. not just a fake file"

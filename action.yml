@@ -1,0 +1,22 @@
+name: 'crash test minepkg package'
+description: 'crash tests a package'
+author: 'minepkg'
+branding:
+  icon: 'activity'
+  color: 'orange'
+inputs:
+  working-directory:
+    description: 'Working directory to use. Default is root of the project'
+  minecraft:
+    description: 'Which Minecraft version to use when crash testing'
+    required: false
+  cli-version:
+    description: 'The minepkg CLI version to install'
+    default: 'latest'
+  no-build:
+    description: 'minepkg will skip building if set to true (build should already exist).'
+    default: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

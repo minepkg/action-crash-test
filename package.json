@@ -1,0 +1,53 @@
+{
+  "name": "action-crash-test",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "all": "npm run build && npm run format && npm run package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minepkg/action-crash-test.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "testing",
+    "minecraft",
+    "minepkg"
+  ],
+  "author": "minepkg",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "action-install-minepkg": "github:minepkg/action-install-minepkg"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.9",
+    "@typescript-eslint/parser": "^4.21.0",
+    "@vercel/ncc": "^0.27.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-github": "^4.1.1",
+    "js-yaml": "^4.0.0",
+    "prettier": "2.2.1",
+    "typescript": "^4.1.3"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  }
+}

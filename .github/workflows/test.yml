@@ -1,0 +1,51 @@
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run all
+  test: # testing matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          working-directory: test/package
+          minecraft: ${{ matrix.minecraft }}
+      - run: minepkg -v
+  test-no-set-mc-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          working-directory: test/package
+      - run: minepkg -v
+  test-no-set-directory: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+      - run: minepkg -v
+  test-other:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          cli-version: 0.1.6
+          no-build: true
+      - run: minepkg -v
+

@@ -1,0 +1,21 @@
+
+# Preview of the minepkg.toml format! Could break anytime!
+manifestVersion = 0
+
+[package]
+  type = "mod"
+  name = "test-action-mod"
+  description = "Test only. Nothing to see here"
+  version = "0.1.0"
+  platform = "fabric"
+  license = "MIT"
+
+# These are global requirements
+[requirements]
+  minecraft = "~1.16.5"
+  fabricLoader = "*"
+
+[dependencies]
+
+[dev]
+  buildCommand = "./gradlew build"
