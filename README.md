@@ -38,16 +38,26 @@ This action will crash test your package using the latest possible version liste
 The following job will test a package on multiple Minecraft versions.
 Make sure to double check the indentation.
 
+**Note:** This job depends on another job called `build` to upload the jars as artifacts first!
+You can [view a full example here](https://github.com/minepkg/companion-fabric/blob/main/.github/workflows/build-and-test.yml).
+
 ```yaml
-crash-test-on-multiple-versions:
+crash-test:
   runs-on: ubuntu-latest
+  needs: build
   strategy:
     fail-fast: false
     matrix:
       minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2]
   steps:
     - uses: actions/checkout@v2
-    - uses: minepkg/action-crashtest@v0
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: jars
+        path: build/libs
+    - uses: minepkg/action-crash-test@v0
       with:
         minecraft: ${{ matrix.minecraft }}
+        no-build: true
 ```
