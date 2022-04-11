@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/semi */
 import * as fs from 'fs';
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import install from 'action-install-minepkg/src/install';
 
-const TRUE_STRINGS = ['true', 'yes', '1', 'on'];
-const isTrue = (s: string) => s && TRUE_STRINGS.includes(s);
+const TRUE_STRINGS = ['true', 'yes', '1', 'on', 'ja'];
+const isTrue = (s: string): boolean => !!s && TRUE_STRINGS.includes(s);
 
 // note: debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
 async function run(): Promise<void> {
@@ -37,8 +38,8 @@ async function run(): Promise<void> {
   }
 
   const args = ['run', '--crashtest', '--server', '-a'];
-  if (minecraft) args.push('--minecraft=' + minecraft);
-  if (noBuild || isTrue(noBuild)) args.push('--no-build');
+  if (minecraft) args.push(`--minecraft=${minecraft}`);
+  if (isTrue(noBuild)) args.push('--no-build');
 
   core.info('crash testing package');
   await exec.exec('minepkg', args);

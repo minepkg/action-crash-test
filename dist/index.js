@@ -39,12 +39,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+/* eslint-disable @typescript-eslint/semi */
 const fs = __importStar(__nccwpck_require__(747));
 const core = __importStar(__nccwpck_require__(186));
 const exec = __importStar(__nccwpck_require__(514));
 const install_1 = __importDefault(__nccwpck_require__(562));
-const TRUE_STRINGS = ['true', 'yes', '1', 'on'];
-const isTrue = (s) => s && TRUE_STRINGS.includes(s);
+const TRUE_STRINGS = ['true', 'yes', '1', 'on', 'ja'];
+const isTrue = (s) => !!s && TRUE_STRINGS.includes(s);
 // note: debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -73,8 +74,8 @@ function run() {
         }
         const args = ['run', '--crashtest', '--server', '-a'];
         if (minecraft)
-            args.push('--minecraft=' + minecraft);
-        if (noBuild || isTrue(noBuild))
+            args.push(`--minecraft=${minecraft}`);
+        if (isTrue(noBuild))
             args.push('--no-build');
         core.info('crash testing package');
         yield exec.exec('minepkg', args);
