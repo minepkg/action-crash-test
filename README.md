@@ -18,6 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        # This step is only needed if you need to build a mod
+      - name: Set up JDK 1.17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 17
       - uses: minepkg/action-crash-test@v0
         with:
           working-directory: '/' # optional
