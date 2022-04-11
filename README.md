@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: minepkg/action-crash-test@main
+      - uses: minepkg/action-crash-test@v0
         with:
           working-directory: '/' # optional
           # minecraft: 1.18.2 # optional
@@ -47,7 +47,7 @@ crash-test-on-multiple-versions:
       minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2]
   steps:
     - uses: actions/checkout@v2
-    - uses: minepkg/action-crashtest@main
+    - uses: minepkg/action-crashtest@v0
       with:
         minecraft: ${{ matrix.minecraft }}
 ```
