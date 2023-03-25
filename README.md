@@ -1,6 +1,11 @@
-# minepkg crash test GitHub action
+<div style="display: flex; margin: 10px 0 20px; ">
+  <img align="center" width="100" src="./assets/crashtest-logo.svg" alt="minepkg" style="margin-right: 20px; align-self: center"/>
+  <div>
+    <h1 style="margin-top: 0; font-size: 28px; text-decoration: none">minepkg crash test GitHub action</h1>
+    <p>This action crash tests a minepkg package.</p>
+  </div>
+</div>
 
-This action crash tests a minepkg package.
 
 ## Usage
 
