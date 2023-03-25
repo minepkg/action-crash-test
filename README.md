@@ -1,5 +1,5 @@
-<div style="display: flex; margin: 10px 0 20px; ">
-  <img align="center" width="100" src="./assets/crashtest-logo.svg" alt="minepkg" style="margin-right: 20px; align-self: center"/>
+<div style="display: flex; margin: 10px 0 20px">
+  <img align="left" width="100" src="./assets/crashtest-logo.svg" alt="minepkg" style="margin-right: 20px; align-self: center"/>
   <div>
     <h1 style="margin-top: 0; font-size: 28px; text-decoration: none">minepkg crash test GitHub action</h1>
     <p>This action crash tests a minepkg package.</p>
@@ -32,7 +32,7 @@ jobs:
       - uses: minepkg/action-crash-test@v0
         with:
           working-directory: '/' # optional
-          # minecraft: 1.18.2 # optional
+          # minecraft: 1.19.3 # optional
 ```
 
 This action will crash test your package using the latest possible version listed you specified for `requirements.minecraft` in your `minepkg.toml` file.
@@ -59,7 +59,7 @@ crash-test:
   strategy:
     fail-fast: false
     matrix:
-      minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2]
+      minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2, 1.19.3]
   steps:
     - uses: actions/checkout@v2
     - name: Download Artifacts
