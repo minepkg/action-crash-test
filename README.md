@@ -22,10 +22,10 @@ jobs:
   crash-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         # This step is only needed if you need to build a mod
       - name: Set up JDK 1.17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
           java-version: 17
@@ -61,9 +61,9 @@ crash-test:
     matrix:
       minecraft: [1.15.2, 1.16.5, 1.17.1, 1.18.2, 1.19.3]
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Download Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: jars
         path: build/libs
